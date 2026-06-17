@@ -23,7 +23,7 @@ Website portofolio profesional untuk **AI Automation Agency**, penyedia solusi o
 
 ## 🎯 Tentang
 
-Website ini adalah portofolio profesional untuk freelancer AI automation yang menampilkan layanan, testimoni, dan formulir kontak. Dirancang dengan tema gelap modern dan aksen **ungu** serta **teal** yang profesional dan menarik bagi klien.
+Website ini adalah portofolio profesional untuk freelancer AI automation yang menampilkan layanan, testimoni, dan formulir kontak. Dirancang dengan tema hitam-putih yang bersih, modern, dan profesional.
 
 **Target Audiens:** Pemilik bisnis UKM, startup, dan perusahaan di Indonesia yang membutuhkan solusi otomatisasi AI.
 
@@ -31,7 +31,7 @@ Website ini adalah portofolio profesional untuk freelancer AI automation yang me
 
 ## ✨ Fitur
 
-- ✅ **Tema gelap modern** — dengan aksen ungu/teal premium
+- ✅ **Tema hitam-putih monokrom** — bersih, minimal, profesional
 - ✅ **Fully responsive** — mobile, tablet, dan desktop
 - ✅ **Animasi scroll** — fade-in yang halus
 - ✅ **Formulir kontak** — terintegrasi dengan Formspree
@@ -168,12 +168,12 @@ Website ini menggunakan **Formspree** untuk mengirim pesan dari formulir kontak.
 
 ### Mengubah Warna Tema
 
-Buka `style.css` dan edit variabel di bagian `:root`:
+Buka `style.css` dan edit variabel di bagian `:root` untuk menyesuaikan warna:
 
 ```css
 :root {
-    --accent-purple: #8b5cf6;  /* Ganti warna utama */
-    --accent-teal: #14b8a6;    /* Ganti warna sekunder */
+    --accent: #FFFFFF;      /* Ganti warna aksen utama */
+    --accent-light: #A1A1AA; /* Ganti warna aksen sekunder */
     /* ... */
 }
 ```

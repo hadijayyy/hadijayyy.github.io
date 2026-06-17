@@ -543,7 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Use a monospace plain-text representation during typing
             codeBody.textContent = displayText;
-            codeBody.style.borderRight = '2px solid var(--accent-teal)';
+            codeBody.style.borderRight = '2px solid var(--text-secondary)';
 
             // Advance
             if (currentCharIndex < currentLine.length) {
@@ -713,10 +713,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // CONSOLE EASTER EGG
     // =============================================
     console.log('%c AI Automation Agency ',
-        'background: linear-gradient(135deg, #8b5cf6, #14b8a6); color: white; font-size: 14px; font-weight: bold; padding: 8px 16px; border-radius: 4px;'
+        'background: #FFFFFF; color: #0A0A0B; font-size: 14px; font-weight: bold; padding: 8px 16px; border-radius: 4px;'
     );
     console.log('%c Tertarik collaborate? Hubungi kami di hello@aiautomation.id ',
-        'color: #94a3b8; font-size: 12px;'
+        'color: #A1A1AA; font-size: 12px;'
     );
 
 });
