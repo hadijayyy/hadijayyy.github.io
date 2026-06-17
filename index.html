@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Automation Agency - Layanan otomatisasi AI profesional untuk bisnis Anda. Web scraping, konten generasi, otomatisasi media sosial, dan analisis data.">
+    <title>AI Automation Agency | Solusi Otomatisasi Cerdas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">&#9889;</span>
+                <span class="logo-text">AI<span class="accent">Automation</span></span>
+            </a>
+            <div class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active">Beranda</a></li>
+                <li><a href="#services" class="nav-link">Layanan</a></li>
+                <li><a href="#about" class="nav-link">Tentang</a></li>
+                <li><a href="#contact" class="nav-link">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">AI Automation Agency</div>
+                <h1 class="hero-title">
+                    Otomatisasi Bisnis Anda<br>
+                    dengan <span class="gradient-text">Kecerdasan Buatan</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Kami membantu bisnis di Indonesia menghemat waktu dan biaya melalui solusi otomatisasi 
+                    berbasis AI yang handal. Dari scraping data hingga generasi konten — semuanya otomatis.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">Konsultasi Gratis</a>
+                    <a href="#services" class="btn btn-outline">Lihat Layanan</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="50">0</span>
+                        <span class="stat-plus">+</span>
+                        <span class="stat-label">Proyek Selesai</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="30">0</span>
+                        <span class="stat-plus">+</span>
+                        <span class="stat-label">Klien Puas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="99">0</span>
+                        <span class="stat-percent">%</span>
+                        <span class="stat-label">Tepat Waktu</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-code-card">
+                    <div class="code-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="code-body">
+                        <pre><code><span class="code-keyword">from</span> ai_automation <span class="code-keyword">import</span> Agency
+
+<span class="code-comment"># Inisialisasi agen AI</span>
+agency = Agency(api_key=<span class="code-string">"sk-***"</span>)
+
+<span class="code-comment"># Automate everything</span>
+result = agency.automate({
+    <span class="code-string">"task"</span>: <span class="code-string">"scrape_data"</span>,
+    <span class="code-string">"source"</span>: <span class="code-string">"ecommerce"</span>,
+    <span class="code-string">"output"</span>: <span class="code-string">"report.json"</span>
+})
+
+<span class="code-keyword">print</span>(<span class="code-string">f"✅ Selesai: {result.status}"</span>)</code></pre>
+                    </div>
+                </div>
+                <div class="hero-glow"></div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients / Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <p class="trust-text">Dipercaya oleh startup dan UKM di seluruh Indonesia</p>
+            <div class="trust-logos">
+                <span class="trust-logo">TechCorp</span>
+                <span class="trust-logo">Digitalku</span>
+                <span class="trust-logo">StartupID</span>
+                <span class="trust-logo">WebPrime</span>
+                <span class="trust-logo">DataFlow</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Layanan</span>
+                <h2 class="section-title">Solusi Otomatisasi <span class="gradient-text">AI Profesional</span></h2>
+                <p class="section-desc">
+                    Kami menyediakan layanan otomatisasi berbasis AI yang dirancang untuk 
+                    meningkatkan efisiensi dan produktivitas bisnis Anda.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="service-title">Web Scraping & Ekstraksi Data</h3>
+                    <p class="service-desc">
+                        Kumpulkan data dari berbagai situs web secara otomatis. Idealkan untuk riset pasar, 
+                        monitoring kompetitor, dan pengumpulan dataset dalam skala besar.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Scraping multi-sumber</li>
+                        <li><i class="fas fa-check"></i> Export ke CSV/JSON/Excel</li>
+                        <li><i class="fas fa-check"></i> Jadwal otomatis (cron)</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3 class="service-title">Generasi Konten dengan AI</h3>
+                    <p class="service-desc">
+                        Buat konten berkualitas tinggi secara otomatis untuk blog, media sosial, 
+                        email marketing, dan landing page dengan bantuan AI modern.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Artikel & blog posts</li>
+                        <li><i class="fas fa-check"></i> Caption media sosial</li>
+                        <li><i class="fas fa-check"></i> Copywriting marketing</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-share-nodes"></i>
+                    </div>
+                    <h3 class="service-title">Otomatisasi Media Sosial</h3>
+                    <p class="service-desc">
+                        Jadwalkan, publish, dan analisis konten media sosial secara otomatis. 
+                        Kelola banyak akun dari satu dashboard terpusat.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Posting terjadwal</li>
+                        <li><i class="fas fa-check"></i> Multi-platform</li>
+                        <li><i class="fas fa-check"></i> Analytics & reporting</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title">Analisis Data & Visualisasi</h3>
+                    <p class="service-desc">
+                        Ubah data mentah menjadi wawasan bisnis yang actionable. 
+                        Laporan otomatis, dashboard interaktif, dan prediksi berbasis AI.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Dashboard interaktif</li>
+                        <li><i class="fas fa-check"></i> Laporan otomatis</li>
+                        <li><i class="fas fa-check"></i> Predictive analytics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process / How It Works -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Cara Kerja</span>
+                <h2 class="section-title">Bagaimana <span class="gradient-text">Kami Bekerja</span></h2>
+                <p class="section-desc">
+                    Proses sederhana dan transparan dari konsultasi hingga implementasi.
+                </p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step" data-aos="fade-up">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h4>Konsultasi</h4>
+                        <p>Diskusikan kebutuhan bisnis Anda dan tentukan solusi otomatisasi yang tepat.</p>
+                    </div>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h4>Perancangan</h4>
+                        <p>Kami merancang arsitektur sistem otomatisasi yang sesuai dengan kebutuhan Anda.</p>
+                    </div>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h4>Implementasi</h4>
+                        <p>Tim kami membangun dan mengintegrasikan solusi otomatisasi ke dalam sistem Anda.</p>
+                    </div>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h4>Monitoring & Support</h4>
+                        <p>Kami memantau performa sistem dan memberikan dukungan berkelanjutan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-tag">Tentang Kami</span>
+                    <h2 class="section-title">Mengubah Bisnis dengan <span class="gradient-text">Kekuatan AI</span></h2>
+                    <p>
+                        <strong>AI Automation Agency</strong> adalah penyedia solusi otomatisasi berbasis kecerdasan buatan 
+                        yang berbasis di Indonesia. Kami berdedikasi untuk membantu bisnis lokal dan internasional 
+                        mengoptimalkan operasional mereka melalui teknologi AI.
+                    </p>
+                    <p>
+                        Dengan pengalaman di berbagai industri — e-commerce, digital marketing, fintech, dan logistik — 
+                        kami memahami tantangan unik yang dihadapi bisnis di era digital.
+                    </p>
+                    <div class="about-values">
+                        <div class="value-item">
+                            <i class="fas fa-shield-halved"></i>
+                            <div>
+                                <h4>Terpercaya</h4>
+                                <p>Data Anda aman dengan enkripsi tingkat enterprise.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-bolt"></i>
+                            <div>
+                                <h4>Cepat & Efisien</h4>
+                                <p>Implementasi cepat tanpa mengganggu operasional Anda.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-headset"></i>
+                            <div>
+                                <h4>Dukungan 24/7</h4>
+                                <p>Tim support siap membantu kapanpun Anda butuhkan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-stats-card">
+                        <div class="about-stat">
+                            <span class="about-stat-number">3+</span>
+                            <span class="about-stat-label">Tahun Pengalaman</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-number">50+</span>
+                            <span class="about-stat-label">Proyek Sukses</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-number">98%</span>
+                            <span class="about-stat-label">Kepuasan Klien</span>
+                        </div>
+                    </div>
+                    <div class="about-tech-tags">
+                        <span>Python</span>
+                        <span>LangChain</span>
+                        <span>OpenAI</span>
+                        <span>Selenium</span>
+                        <span>Pandas</span>
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>AWS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Testimoni</span>
+                <h2 class="section-title">Apa Kata <span class="gradient-text">Klien Kami</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Scraping tool yang mereka buat menghemat 20 jam kerja tim saya per minggu. 
+                        Data kompetitor sekarang selalu up-to-date. Luar biasa!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AR</div>
+                        <div class="author-info">
+                            <h4>Andi Rahman</h4>
+                            <span>Founder, Digitalku</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Konten blog kami sekarang terbit setiap hari tanpa harus merekrut tim konten 
+                        tambahan. Kualitasnya konsisten dan SEO-friendly."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SP</div>
+                        <div class="author-info">
+                            <h4>Sari Putri</h4>
+                            <span>Marketing Manager, TechCorp</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Dashboard analytics yang mereka bangun memberikan insight yang sebelumnya 
+                        tidak pernah kami lihat. ROI positif dalam 2 bulan pertama."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DW</div>
+                        <div class="author-info">
+                            <h4>Dwi Wijaya</h4>
+                            <span>CTO, StartupID</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Kontak</span>
+                <h2 class="section-title">Mulai <span class="gradient-text">Transformasi</span> Bisnis Anda</h2>
+                <p class="section-desc">
+                    Siap mengotomatiskan bisnis Anda? Isi form di bawah dan tim kami akan 
+                    menghubungi Anda dalam 1x24 jam.
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nomor WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+62 xxx xxxx xxxx">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Layanan yang Dibutuhkan</label>
+                            <select id="service" name="service">
+                                <option value="">Pilih layanan...</option>
+                                <option value="web-scraping">Web Scraping & Ekstraksi Data</option>
+                                <option value="content-generation">Generasi Konten dengan AI</option>
+                                <option value="social-media">Otomatisasi Media Sosial</option>
+                                <option value="data-analytics">Analisis Data & Visualisasi</option>
+                                <option value="custom">Solusi Kustom</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Deskripsi Proyek</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Jelaskan kebutuhan otomatisasi Anda..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span>Kirim Pesan</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <p class="form-note">
+                            <i class="fas fa-lock"></i> Data Anda aman dan tidak akan dibagikan kepada pihak ketiga.
+                        </p>
+                    </form>
+                    <div class="form-success" id="formSuccess">
+                        <i class="fas fa-circle-check"></i>
+                        <h3>Pesan Terkirim!</h3>
+                        <p>Terima kasih! Tim kami akan menghubungi Anda dalam 1x24 jam melalui email atau WhatsApp.</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-info-card">
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:hello@aiautomation.id">hello@aiautomation.id</a>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/6281234567890">+62 812-3456-7890</a>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-pin"></i>
+                            <div>
+                                <h4>Lokasi</h4>
+                                <p>Jakarta, Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Jam Kerja</h4>
+                                <p>Senin - Jumat, 09:00 - 18:00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-cta">
+                        <h4>Butuh Bantuan Langsung?</h4>
+                        <p>Hubungi kami via WhatsApp untuk respon lebih cepat.</p>
+                        <a href="https://wa.me/6281234567890" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Chat WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <span class="logo-icon">&#9889;</span>
+                        <span class="logo-text">AI<span class="accent">Automation</span></span>
+                    </a>
+                    <p>Solusi otomatisasi AI profesional untuk bisnis Indonesia. Tingkatkan efisiensi dan skala bisnis Anda dengan teknologi terkini.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="#services">Web Scraping</a></li>
+                        <li><a href="#services">Generasi Konten</a></li>
+                        <li><a href="#services">Otomatisasi Sosmed</a></li>
+                        <li><a href="#services">Analisis Data</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Perusahaan</h4>
+                    <ul>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                        <li><a href="#">Portofolio</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Dukungan</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Automation Agency. All rights reserved. Made with <i class="fas fa-heart"></i> in Indonesia 🇮🇩</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
