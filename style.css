@@ -1376,8 +1376,6 @@ section { padding: 120px 0; }
 }
 
 @media (max-width: 768px) {
-    :root { --nav-height: 56px; }
-
     .nav-menu {
         position: fixed;
         top: 0;
