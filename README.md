@@ -1,6 +1,6 @@
-# 🤖 AI Automation Agency — Portfolio Website
+# 👋 Ryan Hadi — AI Automation Specialist
 
-Website portofolio profesional untuk **AI Automation Agency**, penyedia solusi otomatisasi berbasis kecerdasan buatan di Indonesia.
+Website portofolio profesional untuk **Ryan Hadi**, AI Automation Specialist — penyedia solusi otomatisasi berbasis kecerdasan buatan.
 
 ![Preview](https://img.shields.io/badge/status-live-brightgreen)
 ![HTML](https://img.shields.io/badge/HTML-5-orange)
@@ -100,7 +100,7 @@ cp -r /path/to/portfolio/* .
 
 # Commit dan push
 git add .
-git commit -m "Deploy AI Automation Agency portfolio"
+git commit -m "Deploy Ryan Hadi portfolio"
 git push origin main
 ```
 
@@ -194,7 +194,7 @@ portfolio/
 
 ## 📄 Lisensi
 
-Hak cipta © 2024 AI Automation Agency. Dibuat dengan ❤️ di Indonesia.
+Hak cipta © 2024 Ryan Hadi. Dibuat dengan ❤️ di Indonesia.
 
 Bebas digunakan untuk keperluan portofolio pribadi. Dilarang menjual kembali tanpa izin.
 
@@ -202,10 +202,9 @@ Bebas digunakan untuk keperluan portofolio pribadi. Dilarang menjual kembali tan
 
 ## 💬 Kontak
 
-Ada pertanyaan? Hubungi kami:
+Ada pertanyaan? Hubungi saya:
 
-- **Email:** hello@aiautomation.id
-- **WhatsApp:** +62 812-3456-7890
+- **Fiverr:** [ryanhadi_ai](https://www.fiverr.com/ryanhadi_ai)
 - **Website:** [hadijayyy.github.io](https://hadijayyy.github.io)
 
 ---
