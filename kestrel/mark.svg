@@ -1,7 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#16171B"/>
-  <!-- stylized kestrel in a dive: two swept wings meeting at a sharp beak -->
-  <path d="M12 18 L36 30 L30 34 Z" fill="#FF6B35"/>
-  <path d="M52 14 L34 31 L40 36 Z" fill="#FF6B35" opacity=".72"/>
-  <path d="M30 34 L40 36 L33 50 Z" fill="#F5F2EA"/>
+  <defs>
+    <radialGradient id="c" cx="50%" cy="40%" r="65%"><stop offset="0" stop-color="#14434C"/><stop offset="1" stop-color="#05161A"/></radialGradient>
+    <linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0FCFF"/><stop offset="1" stop-color="#86D8E7"/></linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#c)"/>
+  <circle cx="32" cy="32" r="30" stroke="#6CC6D6" stroke-width="2"/>
+  <g transform="translate(32 34) scale(.31) translate(-100 -100)" fill="url(#b)">
+    <path d="M100 88 C84 78 58 66 16 66 C38 78 58 90 76 100 C84 104 92 106 97 106 Z"/>
+    <path d="M100 88 C116 78 142 66 184 66 C162 78 142 90 124 100 C116 104 108 106 103 106 Z"/>
+    <path d="M100 72 C106 76 109 86 108 98 C107 110 104 120 100 126 C96 120 93 110 92 98 C91 86 94 76 100 72 Z"/>
+    <path d="M95 120 L84 148 C94 143 100 144 100 144 C100 144 106 143 116 148 L105 120 Z"/>
+  </g>
 </svg>

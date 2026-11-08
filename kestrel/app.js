@@ -144,7 +144,7 @@ const io = new IntersectionObserver((entries) => {
   for (const e of entries) (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target));
   float.classList.toggle('hide', visible.size > 0);
 });
-io.observe(document.querySelector('.hero > .btn'));
+io.observe($('hero-cta'));
 io.observe($('start'));
 
 const saved = localStorage.getItem('kestrel.rpc');

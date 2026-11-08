@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="none">
+  <defs>
+    <radialGradient id="core" cx="50%" cy="42%" r="60%">
+      <stop offset="0" stop-color="#123C44"/>
+      <stop offset=".7" stop-color="#071B20"/>
+      <stop offset="1" stop-color="#030C0F"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9FE6F2"/>
+      <stop offset=".55" stop-color="#3E9EB0"/>
+      <stop offset="1" stop-color="#14505C"/>
+    </linearGradient>
+    <linearGradient id="bird" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E9FBFF"/>
+      <stop offset="1" stop-color="#7FD4E4"/>
+    </linearGradient>
+    <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7FD4E4" stop-opacity=".0"/>
+      <stop offset="1" stop-color="#7FD4E4" stop-opacity=".28"/>
+    </linearGradient>
+  </defs>
+  <circle cx="320" cy="320" r="304" fill="url(#core)"/>
+  <circle cx="320" cy="320" r="304" stroke="url(#rim)" stroke-width="6"/>
+  <circle cx="320" cy="320" r="282" stroke="#2D7F8F" stroke-opacity=".5" stroke-width="1.5"/>
+  <!-- radar rings -->
+  <g stroke="#5BBFD1" stroke-opacity=".35" stroke-width="2">
+    <circle cx="320" cy="320" r="230"/>
+    <circle cx="320" cy="320" r="170"/>
+    <circle cx="320" cy="320" r="110"/>
+  </g>
+  <g stroke="#5BBFD1" stroke-opacity=".22" stroke-width="1.5">
+    <path d="M320 40 V600 M40 320 H600"/>
+  </g>
+  <!-- tick marks -->
+  <g stroke="#8FDCEA" stroke-opacity=".55" stroke-width="3" stroke-linecap="round">
+    <path d="M320 22 v20 M320 598 v20 M22 320 h20 M598 320 h20"/>
+    <path d="M110 110 l12 12 M530 110 l-12 12 M110 530 l12 -12 M530 530 l-12 -12"/>
+  </g>
+  <!-- radar sweep -->
+  <path d="M320 320 L320 90 A230 230 0 0 1 519 205 Z" fill="url(#sweep)"/>
+  <!-- blips -->
+  <circle cx="452" cy="200" r="7" fill="#9FE6F2"/>
+  <circle cx="452" cy="200" r="16" stroke="#9FE6F2" stroke-opacity=".5" stroke-width="2"/>
+  <circle cx="198" cy="430" r="5" fill="#5BBFD1" fill-opacity=".8"/>
+  <circle cx="420" cy="452" r="4" fill="#5BBFD1" fill-opacity=".6"/>
+</svg>
