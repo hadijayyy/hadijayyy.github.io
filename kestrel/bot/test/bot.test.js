@@ -51,7 +51,7 @@ test('config: dry run by default, validates', () => {
 });
 
 test('store: per-user cooldown and global hourly cap', () => {
-  const s = new Store(join(mkdtempSync(join(tmpdir(), 'lontar-')), 'd.json'));
+  const s = new Store(join(mkdtempSync(join(tmpdir(), 'kestrel-')), 'd.json'));
   const lim = { cooldownHours: 24, maxPerHour: 2 };
   const t0 = 1_000_000_000_000;
   assert.equal(s.launchWait('a', lim, t0), null);

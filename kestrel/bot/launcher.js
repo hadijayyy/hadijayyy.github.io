@@ -1,6 +1,6 @@
 // Launches a coin on Ascend through the EscrowFactory.
 // Non-custodial: no dev buy, so the bot never touches user funds. It only pays gas.
-// The user's wallet receives the creator fees; Lontar's builder address earns the builder fee.
+// The user's wallet receives the creator fees; Kestrel's builder address earns the builder fee.
 
 import * as viem from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';

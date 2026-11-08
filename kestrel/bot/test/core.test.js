@@ -18,7 +18,7 @@ test('parse: defaults', () => {
 });
 
 test('parse: options, $ prefix and bot mention', () => {
-  const r = parseLaunchCommand('/launch@LontarBot $gpix Garuda Pixel fee=3.5% pair=hype cto=no');
+  const r = parseLaunchCommand('/launch@KestrelBot $gpix Garuda Pixel fee=3.5% pair=hype cto=no');
   assert.equal(r.ok, true);
   assert.equal(r.symbol, 'GPIX');
   assert.equal(r.feePips, 35_000);

@@ -1,8 +1,8 @@
 {
-  "name": "lontar-bot",
+  "name": "kestrel-bot",
   "version": "0.1.0",
   "private": true,
-  "description": "Lontar: launch and scan Ascend coins on Elysium from Telegram",
+  "description": "Kestrel: launch and scan Ascend coins on Elysium from Telegram",
   "type": "module",
   "engines": { "node": ">=20" },
   "scripts": {

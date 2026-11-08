@@ -2,29 +2,20 @@ import { analyzeLaunch } from './core/analyze.js';
 import { pipsToPercent, quoteByAddress, shortAddr } from './core/ascend.js';
 import { isAddress } from './core/parse.js';
 import { SAMPLE_LAUNCHES } from './core/sample.js';
+import { I18N } from './i18n.js';
+
+// Set to the bot's t.me link once it is running, e.g. 'https://t.me/YourKestrelBot'.
+const BOT_URL = '';
 
 const $ = (id) => document.getElementById(id);
 const state = {
-  lang: localStorage.getItem('lontar.lang') || (navigator.language?.startsWith('id') ? 'id' : 'en'),
+  lang: localStorage.getItem('kestrel.lang') || (navigator.language?.startsWith('id') ? 'id' : 'en'),
   launches: SAMPLE_LAUNCHES,
   demo: true,
   reader: null,
+  error: null,
 };
-
-const TXT = {
-  demo: { en: 'Showing example coins (not real). Paste an Elysium RPC URL to load live launches.', id: 'Menampilkan koin contoh (bukan asli). Tempel URL RPC Elysium untuk memuat launch asli.' },
-  loading: { en: 'Loading launches from Elysium…', id: 'Memuat launch dari Elysium…' },
-  live: { en: 'Live from Elysium mainnet.', id: 'Data live dari mainnet Elysium.' },
-  none: { en: 'No launches found yet.', id: 'Belum ada launch.' },
-  badAddr: { en: 'Enter a valid 0x address.', id: 'Masukkan alamat 0x yang valid.' },
-  needRpc: { en: 'Load live data first (RPC URL), then scan.', id: 'Muat data live dulu (URL RPC), lalu scan.' },
-  notAscend: { en: 'That address is not an Ascend launch.', id: 'Alamat itu bukan koin hasil launch Ascend.' },
-  example: { en: 'Example', id: 'Contoh' },
-  fee: { en: 'Fee', id: 'Fee' },
-  devbuy: { en: 'Dev buy', id: 'Dev buy' },
-  ago: { en: 'ago', id: 'lalu' },
-};
-const t = (k) => TXT[k][state.lang];
+const t = (k) => I18N[k]?.[state.lang] ?? k;
 
 function el(tag, cls, text) {
   const n = document.createElement(tag);
@@ -40,13 +31,13 @@ function age(sec) {
   return `${Math.floor(d / 86400)}d`;
 }
 
-function card(l) {
+function card(l, isExample) {
   const a = analyzeLaunch(l);
   const c = el('article', `card ${a.level}`);
   const head = el('div', 'card-head');
   const title = el('div');
   title.append(el('h3', '', l.name || l.symbol), el('span', 'ticker', `$${l.symbol}`));
-  if (state.demo) title.append(el('span', 'tag', t('example')));
+  if (isExample) title.append(el('span', 'tag', t('example')));
   head.append(title, el('span', `badge ${a.level}`, a.label[state.lang]));
   c.append(head);
 
@@ -55,7 +46,7 @@ function card(l) {
   stat(t('fee'), `${a.totalFeePercent}%`);
   stat('Pair', quoteByAddress(l.quote)?.label || '?');
   stat(t('devbuy'), `${a.devBuyPercent}%`);
-  if (l.launchedAt) stat('Age', `${age(l.launchedAt)} ${t('ago')}`);
+  if (l.launchedAt) stat(t('age'), age(l.launchedAt));
   c.append(stats);
 
   c.append(el('p', 'summary', a.summary[state.lang]));
@@ -72,18 +63,32 @@ function card(l) {
 function render() {
   document.documentElement.lang = state.lang;
   $('lang').textContent = state.lang === 'en' ? 'ID' : 'EN';
-  for (const n of document.querySelectorAll('[data-en]')) n.textContent = n.dataset[state.lang];
+  for (const n of document.querySelectorAll('[data-i18n]')) n.textContent = t(n.dataset.i18n);
+
+  $('feat-card').replaceChildren(card(SAMPLE_LAUNCHES[1], true));
+
   const box = $('cards');
-  box.replaceChildren(...state.launches.map(card));
+  box.replaceChildren(...state.launches.map((l) => card(l, state.demo)));
   if (!state.launches.length) box.append(el('p', 'status', t('none')));
-  if (state.error) $('status').textContent = state.error;
-  else if (state.demo && !$('status').dataset.busy) $('status').textContent = t('demo');
+
+  const status = $('status');
+  if (state.error) status.textContent = state.error;
+  else if (!status.dataset.busy) status.textContent = state.demo ? t('demo') : t('live');
+
+  const cta = $('bot-cta');
+  if (BOT_URL) {
+    cta.href = BOT_URL;
+    $('bot-status').hidden = true;
+  } else {
+    cta.classList.add('disabled');
+    cta.setAttribute('aria-disabled', 'true');
+  }
 }
 
 async function loadLive(rpcUrl) {
   const status = $('status');
-  status.dataset.busy = '1';
   state.error = null;
+  status.dataset.busy = '1';
   status.textContent = t('loading');
   try {
     const viem = await import('https://esm.sh/viem@2.57.17');
@@ -91,10 +96,9 @@ async function loadLive(rpcUrl) {
     const reader = createReader({ viem, rpcUrl });
     await reader.assertMainnet();
     state.reader = reader;
-    state.launches = await state.reader.latestLaunches(12);
+    state.launches = await reader.latestLaunches(12);
     state.demo = false;
-    localStorage.setItem('lontar.rpc', rpcUrl);
-    status.textContent = t('live');
+    localStorage.setItem('kestrel.rpc', rpcUrl);
   } catch (e) {
     state.error = `Error: ${e.shortMessage || e.message}`;
   } finally {
@@ -105,8 +109,12 @@ async function loadLive(rpcUrl) {
 
 $('lang').addEventListener('click', () => {
   state.lang = state.lang === 'en' ? 'id' : 'en';
-  localStorage.setItem('lontar.lang', state.lang);
+  localStorage.setItem('kestrel.lang', state.lang);
   render();
+});
+
+$('bot-cta').addEventListener('click', (e) => {
+  if (!BOT_URL) e.preventDefault();
 });
 
 $('rpc-form').addEventListener('submit', (e) => {
@@ -119,21 +127,33 @@ $('scan-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const addr = $('scan').value.trim();
   const status = $('status');
+  state.error = null;
   if (!isAddress(addr)) { status.textContent = t('badAddr'); return; }
   const local = state.launches.find((l) => l.token.toLowerCase() === addr.toLowerCase());
-  if (local) { $('cards').replaceChildren(card(local)); return; }
+  if (local) { $('cards').replaceChildren(card(local, state.demo)); return; }
   if (!state.reader) { status.textContent = t('needRpc'); return; }
   status.textContent = t('loading');
   try {
     const l = await state.reader.launchByToken(addr);
     if (!l) { status.textContent = t('notAscend'); return; }
     status.textContent = '';
-    $('cards').replaceChildren(card(l));
+    $('cards').replaceChildren(card(l, false));
   } catch (err) {
     status.textContent = `Error: ${err.shortMessage || err.message}`;
   }
 });
 
-const saved = localStorage.getItem('lontar.rpc');
+// Show the floating CTA only once the hero button has scrolled away,
+// and hide it again while the pricing card is on screen.
+const float = document.querySelector('.float-cta');
+const visible = new Set();
+const io = new IntersectionObserver((entries) => {
+  for (const e of entries) (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target));
+  float.classList.toggle('hide', visible.size > 0);
+});
+io.observe(document.querySelector('.hero > .btn'));
+io.observe($('start'));
+
+const saved = localStorage.getItem('kestrel.rpc');
 render();
 if (saved) { $('rpc').value = saved; loadLive(saved); }

@@ -1,4 +1,4 @@
-// Lontar Telegram bot.
+// Kestrel Telegram bot.
 //   /launch TICKER Coin name [fee=2] [pair=USDC|HYPE|KNTQ] [cto=yes|no]
 //   /wallet 0x...   set the wallet that receives your creator fees
 //   /scan 0x...     economics card for any Ascend coin
@@ -38,24 +38,24 @@ function fmtWait(sec) {
 
 const HELP = {
   en: [
-    '<b>Lontar</b>: launch and check coins on Ascend (Elysium).',
+    '<b>Kestrel</b>: launch and check coins on Ascend (Elysium).',
     '',
     '1. <code>/wallet 0xYourWallet</code>: where your creator fees go',
     '2. <code>/launch KOPI Kopi Nusantara fee=2 pair=USDC</code>',
     '3. <code>/scan 0xToken</code>: is this coin safe-looking?',
     '<code>/new</code>: latest launches · <code>/lang id</code>: Bahasa Indonesia',
     '',
-    'Lontar never asks for your private key and never holds your funds.',
+    'Kestrel never asks for your private key and never holds your funds.',
   ].join('\n'),
   id: [
-    '<b>Lontar</b>: luncurkan dan cek koin di Ascend (Elysium).',
+    '<b>Kestrel</b>: luncurkan dan cek koin di Ascend (Elysium).',
     '',
     '1. <code>/wallet 0xWalletKamu</code>: tujuan fee pembuat koin',
     '2. <code>/launch KOPI Kopi Nusantara fee=2 pair=USDC</code>',
     '3. <code>/scan 0xToken</code>: cek apakah koin ini aman',
     '<code>/new</code>: launch terbaru · <code>/lang en</code>: English',
     '',
-    'Lontar tidak pernah meminta private key dan tidak memegang dana kamu.',
+    'Kestrel tidak pernah meminta private key dan tidak memegang dana kamu.',
   ].join('\n'),
 };
 
@@ -83,7 +83,7 @@ async function onLaunch(chatId, userId, u, text) {
     `${T(u, 'Community takeover', 'Community takeover')}: ${parsed.cto ? 'yes' : 'no'}`,
     `${T(u, 'Creator fees go to', 'Fee pembuat masuk ke')}: <code>${u.wallet}</code>`,
     '',
-    T(u, 'No dev buy. Lontar pays the gas.', 'Tanpa dev buy. Gas dibayar Lontar.'),
+    T(u, 'No dev buy. Kestrel pays the gas.', 'Tanpa dev buy. Gas dibayar Kestrel.'),
   ].join('\n');
   return tg.send(chatId, preview, {
     reply_markup: {
@@ -218,7 +218,7 @@ async function alertLoop() {
 }
 
 await reader.assertMainnet();
-console.log(`Lontar bot running. Launches: ${launcher.canLaunch ? (cfg.dryRun ? 'DRY RUN' : 'LIVE') : 'off'}`
+console.log(`Kestrel bot running. Launches: ${launcher.canLaunch ? (cfg.dryRun ? 'DRY RUN' : 'LIVE') : 'off'}`
   + `${launcher.launcherAddress ? ` (gas wallet ${launcher.launcherAddress})` : ''}`);
 alertLoop();
 for await (const update of tg.updates()) {

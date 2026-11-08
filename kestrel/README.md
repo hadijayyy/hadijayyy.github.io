@@ -1,10 +1,10 @@
-# Lontar
+# Kestrel
 
 Launch a coin on [Ascend](https://ascendlaunch.gitbook.io/docs) (Elysium) from one Telegram message, and read any Ascend launch's economics in plain language before buying.
 
-- **Web scanner:** `lontar/index.html`, served by GitHub Pages at `/lontar/`. Runs fully in the browser. Shows example coins until you paste an Elysium mainnet RPC URL.
-- **Telegram bot:** `lontar/bot/`. Commands: `/wallet`, `/launch`, `/scan`, `/new`, `/lang`. Optional channel alerts for every new Ascend launch.
-- **Shared core:** `lontar/core/`. Contract addresses and ABIs, launch analysis, command parsing, on-chain reader. No dependencies; viem is injected.
+- **Landing page + web scanner:** `kestrel/index.html` (copy in `i18n.js`, EN/ID), served by GitHub Pages at `/kestrel/`. Runs fully in the browser. Shows example coins until you paste an Elysium mainnet RPC URL.
+- **Telegram bot:** `kestrel/bot/`. Commands: `/wallet`, `/launch`, `/scan`, `/new`, `/lang`. Optional channel alerts for every new Ascend launch.
+- **Shared core:** `kestrel/core/`. Contract addresses and ABIs, launch analysis, command parsing, on-chain reader. No dependencies; viem is injected.
 
 Plain-language explanation (Bahasa Indonesia): [PENJELASAN.md](PENJELASAN.md).
 
@@ -16,7 +16,7 @@ Plain-language explanation (Bahasa Indonesia): [PENJELASAN.md](PENJELASAN.md).
 4. On confirm, the bot calls `EscrowFactory.launchChecked`. It always simulates first, and sends only when `DRY_RUN=0`.
    - `devBuyQuote = 0`: the bot never spends or holds user funds, it only pays gas.
    - `recipient = dev = user wallet`: creator fees accrue to the user via the coin's CreatorEscrow.
-   - `builder = BUILDER_ADDRESS`, `builderFee = min(BUILDER_FEE_PERCENT, on-chain builderFeeCap)`. This is Lontar's revenue. The cap is 0 until Ascend's multisig approves the builder, so launches still work without approval, just with no builder fee.
+   - `builder = BUILDER_ADDRESS`, `builderFee = min(BUILDER_FEE_PERCENT, on-chain builderFeeCap)`. This is Kestrel's revenue. The cap is 0 until Ascend's multisig approves the builder, so launches still work without approval, just with no builder fee.
 5. Rate limits: one launch per user every `LAUNCH_COOLDOWN_HOURS`, and `MAX_LAUNCHES_PER_HOUR` across all users.
 
 ## Risk analysis
@@ -40,7 +40,7 @@ The score maps to a level: 0–19 low, 20–39 medium, 40+ high. Good signals ar
 Requires Node 20+.
 
 ```bash
-cd lontar/bot
+cd kestrel/bot
 cp .env.example .env   # fill in TELEGRAM_BOT_TOKEN and ELYSIUM_RPC_URL
 npm install
 npm test
