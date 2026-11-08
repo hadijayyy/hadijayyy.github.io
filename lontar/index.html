@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lontar: launch and check coins on Ascend</title>
+  <meta name="description" content="Launch a coin on Ascend (Elysium) from Telegram, and see any launch's economics in plain language before you buy.">
+  <meta property="og:title" content="Lontar: launch and check coins on Ascend">
+  <meta property="og:description" content="Launch from Telegram. Check any Ascend coin's fees, dev buy and fee routing in plain language.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#">Lontar</a>
+    <nav>
+      <a href="#how" data-en="How it works" data-id="Cara kerja">How it works</a>
+      <a href="#scanner" data-en="Scanner" data-id="Scanner">Scanner</a>
+      <button id="lang" class="chip" type="button">ID</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow" data-en="Built on Ascend · Elysium" data-id="Dibangun di atas Ascend · Elysium">Built on Ascend · Elysium</p>
+      <h1 data-en="Launch a coin from Telegram. Know what you're buying before you buy it."
+          data-id="Luncurkan koin dari Telegram. Pahami koinnya sebelum kamu beli.">Launch a coin from Telegram. Know what you're buying before you buy it.</h1>
+      <p class="lede" data-en="Lontar turns one chat message into an Ascend launch, and turns every Ascend launch into a plain-language card: fees, dev buy, where the creator's fees go, and red flags."
+         data-id="Lontar mengubah satu pesan chat menjadi launch di Ascend, dan mengubah setiap launch di Ascend menjadi kartu yang mudah dibaca: fee, dev buy, ke mana fee pembuat mengalir, dan tanda bahaya.">Lontar turns one chat message into an Ascend launch, and turns every Ascend launch into a plain-language card: fees, dev buy, where the creator's fees go, and red flags.</p>
+      <pre class="cmd"><span class="dim">/launch</span> KOPI Kopi Nusantara <span class="dim">fee=2 pair=USDC</span></pre>
+    </section>
+
+    <section id="how" class="how">
+      <div>
+        <h3 data-en="1. Launch" data-id="1. Luncurkan">1. Launch</h3>
+        <p data-en="Type /launch in Telegram. Lontar pays the gas and launches on Ascend with safe defaults: no dev buy, community takeover on."
+           data-id="Ketik /launch di Telegram. Lontar membayar gas dan meluncurkan di Ascend dengan pengaturan aman: tanpa dev buy, community takeover aktif.">Type /launch in Telegram. Lontar pays the gas and launches on Ascend with safe defaults: no dev buy, community takeover on.</p>
+      </div>
+      <div>
+        <h3 data-en="2. Earn" data-id="2. Dapat fee">2. Earn</h3>
+        <p data-en="Every trade pays a fee. The creator's share goes to your wallet. Lontar never holds your funds or asks for your key."
+           data-id="Setiap trade membayar fee. Bagian pembuat masuk ke wallet kamu. Lontar tidak pernah memegang dana atau meminta private key kamu.">Every trade pays a fee. The creator's share goes to your wallet. Lontar never holds your funds or asks for your key.</p>
+      </div>
+      <div>
+        <h3 data-en="3. Check" data-id="3. Cek">3. Check</h3>
+        <p data-en="Before buying any Ascend coin, read its card below or send /scan to the bot. Every flag comes from on-chain data."
+           data-id="Sebelum membeli koin Ascend apa pun, baca kartunya di bawah atau kirim /scan ke bot. Setiap tanda diambil dari data on-chain.">Before buying any Ascend coin, read its card below or send /scan to the bot. Every flag comes from on-chain data.</p>
+      </div>
+    </section>
+
+    <section id="scanner" class="scanner">
+      <div class="scanner-head">
+        <h2 data-en="Launch scanner" data-id="Scanner launch">Launch scanner</h2>
+        <form id="rpc-form" class="rpc">
+          <input id="rpc" type="url" placeholder="Elysium RPC URL (https://…)" aria-label="Elysium RPC URL" autocomplete="off">
+          <button type="submit" class="btn" data-en="Load live" data-id="Muat live">Load live</button>
+        </form>
+      </div>
+      <form id="scan-form" class="rpc">
+        <input id="scan" type="text" placeholder="0x… coin address" aria-label="Coin address" autocomplete="off">
+        <button type="submit" class="btn ghost" data-en="Scan coin" data-id="Scan koin">Scan coin</button>
+      </form>
+      <p id="status" class="status"></p>
+      <div id="cards" class="cards"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p data-en="Automated analysis of on-chain data. Not financial advice. Lontar is an independent app built on Ascend's public contracts."
+       data-id="Analisis otomatis dari data on-chain. Bukan saran keuangan. Lontar adalah aplikasi independen yang dibangun di atas kontrak publik Ascend.">Automated analysis of on-chain data. Not financial advice. Lontar is an independent app built on Ascend's public contracts.</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
