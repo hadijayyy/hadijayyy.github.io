@@ -23,7 +23,7 @@ export class Store {
 
   user(id) {
     const key = String(id);
-    this.data.users[key] ??= { lang: 'id', wallet: null, pending: null };
+    this.data.users[key] ??= { lang: 'en', wallet: null, pending: null };
     return this.data.users[key];
   }
 

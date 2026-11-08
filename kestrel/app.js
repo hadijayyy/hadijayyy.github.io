@@ -9,7 +9,7 @@ const BOT_URL = '';
 
 const $ = (id) => document.getElementById(id);
 const state = {
-  lang: localStorage.getItem('kestrel.lang') || (navigator.language?.startsWith('id') ? 'id' : 'en'),
+  lang: 'en', // the site is English-only; i18n.js keeps the Indonesian copy for later
   launches: SAMPLE_LAUNCHES,
   demo: true,
   reader: null,
@@ -62,7 +62,6 @@ function card(l, isExample) {
 
 function render() {
   document.documentElement.lang = state.lang;
-  $('lang').textContent = state.lang === 'en' ? 'ID' : 'EN';
   for (const n of document.querySelectorAll('[data-i18n]')) n.textContent = t(n.dataset.i18n);
 
   $('feat-card').replaceChildren(card(SAMPLE_LAUNCHES[1], true));
@@ -106,12 +105,6 @@ async function loadLive(rpcUrl) {
     render();
   }
 }
-
-$('lang').addEventListener('click', () => {
-  state.lang = state.lang === 'en' ? 'id' : 'en';
-  localStorage.setItem('kestrel.lang', state.lang);
-  render();
-});
 
 $('bot-cta').addEventListener('click', (e) => {
   if (!BOT_URL) e.preventDefault();

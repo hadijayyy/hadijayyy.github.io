@@ -46,6 +46,8 @@ test('config: dry run by default, validates', () => {
   assert.deepEqual(errors, []);
   assert.equal(cfg.dryRun, true);
   assert.equal(cfg.builderFeePercent, 0.5);
+  assert.equal(cfg.alertLang, 'en');
+  assert.equal(loadConfig({ ALERT_LANG: 'id' }).cfg.alertLang, 'id');
   assert.equal(loadConfig({}).errors.length, 2);
   assert.equal(loadConfig({ TELEGRAM_BOT_TOKEN: 't', ELYSIUM_RPC_URL: 'x', BUILDER_FEE_PERCENT: '5' }).cfg.builderFeePercent, 1);
 });
@@ -54,6 +56,7 @@ test('store: per-user cooldown and global hourly cap', () => {
   const s = new Store(join(mkdtempSync(join(tmpdir(), 'kestrel-')), 'd.json'));
   const lim = { cooldownHours: 24, maxPerHour: 2 };
   const t0 = 1_000_000_000_000;
+  assert.equal(s.user('new').lang, 'en');
   assert.equal(s.launchWait('a', lim, t0), null);
   s.recordLaunch('a', 'A', '0x', t0);
   assert.ok(s.launchWait('a', lim, t0 + 1000) > 0);

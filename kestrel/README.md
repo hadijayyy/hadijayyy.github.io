@@ -2,11 +2,11 @@
 
 Launch a coin on [Ascend](https://ascendlaunch.gitbook.io/docs) (Elysium) from one Telegram message, and read any Ascend launch's economics in plain language before buying.
 
-- **Landing page + web scanner:** `kestrel/index.html` (copy in `i18n.js`, EN/ID), served by GitHub Pages at `/kestrel/`. Runs fully in the browser. Shows example coins until you paste an Elysium mainnet RPC URL.
+- **Landing page + web scanner:** `kestrel/index.html` (English; copy in `i18n.js`, which also keeps an Indonesian translation), served by GitHub Pages at `/kestrel/`. Runs fully in the browser. Shows example coins until you paste an Elysium mainnet RPC URL.
 - **Telegram bot:** `kestrel/bot/`. Commands: `/wallet`, `/launch`, `/scan`, `/new`, `/lang`. Optional channel alerts for every new Ascend launch.
 - **Shared core:** `kestrel/core/`. Contract addresses and ABIs, launch analysis, command parsing, on-chain reader. No dependencies; viem is injected.
 
-Plain-language explanation (Bahasa Indonesia): [PENJELASAN.md](PENJELASAN.md).
+Plain-language explanation: [EXPLAINER.md](EXPLAINER.md) (English) · [PENJELASAN.md](PENJELASAN.md) (Bahasa Indonesia).
 
 ## How a launch works
 

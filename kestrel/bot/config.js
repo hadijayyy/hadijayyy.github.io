@@ -16,6 +16,7 @@ export function loadConfig(env = process.env) {
     cooldownHours: num(env.LAUNCH_COOLDOWN_HOURS, 24),
     maxPerHour: num(env.MAX_LAUNCHES_PER_HOUR, 20),
     alertChatId: env.ALERT_CHAT_ID || '',
+    alertLang: env.ALERT_LANG === 'id' ? 'id' : 'en',
     dataFile: env.DATA_FILE || './data.json',
   };
   const errors = [];

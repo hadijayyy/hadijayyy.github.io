@@ -13,7 +13,7 @@ Fill in everything in [brackets] and check every claim is true before submitting
 **6. Links:**
 - Demo (web scanner): https://hadijayyy.github.io/kestrel/
 - Code: https://github.com/hadijayyy/hadijayyy.github.io/tree/main/kestrel
-- Plain-language overview: https://github.com/hadijayyy/hadijayyy.github.io/blob/main/kestrel/PENJELASAN.md
+- Plain-language overview: https://github.com/hadijayyy/hadijayyy.github.io/blob/main/kestrel/EXPLAINER.md
 - [Telegram bot link, once running]
 
 **7. What are you building, and who is it for?**

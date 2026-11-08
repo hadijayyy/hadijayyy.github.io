@@ -59,8 +59,6 @@ section { padding-top: 104px; padding-bottom: 104px; }
 .links a { color: var(--muted); text-decoration: none; font-size: 14px; }
 .links a:hover { color: var(--text); }
 .nav-cta { display: flex; align-items: center; gap: 10px; }
-.lang { font: inherit; font-size: 13px; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
-.lang:hover { color: var(--text); }
 
 /* hero */
 .hero { padding-top: 88px; padding-bottom: 72px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }

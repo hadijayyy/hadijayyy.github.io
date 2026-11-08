@@ -178,7 +178,7 @@ async function handle(update) {
     case '/help':
       return tg.send(m.chat.id, HELP[u.lang]);
     case '/lang':
-      u.lang = arg.toLowerCase() === 'en' ? 'en' : 'id';
+      u.lang = arg.toLowerCase() === 'id' ? 'id' : 'en';
       store.save();
       return tg.send(m.chat.id, HELP[u.lang]);
     case '/wallet':
@@ -207,7 +207,7 @@ async function alertLoop() {
         store.save();
       }
       const { launches, head } = await reader.launchesSince(BigInt(store.data.lastAlertBlock));
-      for (const l of launches) await tg.send(cfg.alertChatId, formatCard(l, analyzeLaunch(l), 'id'));
+      for (const l of launches) await tg.send(cfg.alertChatId, formatCard(l, analyzeLaunch(l), cfg.alertLang));
       store.data.lastAlertBlock = head.toString();
       store.save();
     } catch (e) {
