@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Kestrel — Ascend Builder Incubator</title>
+<style>
+@font-face{font-family:KInter;src:url(fonts/Inter-Regular.ttf);font-weight:400}
+@font-face{font-family:KInter;src:url(fonts/Inter-Medium.ttf);font-weight:500}
+@font-face{font-family:KInter;src:url(fonts/Inter-SemiBold.ttf);font-weight:600 700}
+@font-face{font-family:KDisplay;src:url(fonts/InterDisplay-Regular.ttf);font-weight:400}
+@font-face{font-family:KDisplay;src:url(fonts/InterDisplay-SemiBold.ttf);font-weight:600 700}
+@font-face{font-family:KMono;src:url(fonts/JetBrainsMono-Regular.ttf);font-weight:400}
+@font-face{font-family:KMono;src:url(fonts/JetBrainsMono-Medium.ttf);font-weight:500 700}
+@page{size:1280px 720px;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#222}
+body{font-family:KInter,sans-serif;color:#EAF6F8;-webkit-font-smoothing:antialiased}
+.slide{width:1280px;height:720px;position:relative;overflow:hidden;page-break-after:always;break-after:page}
+/* two surfaces: keynote glow (A) and terminal grid (C) */
+.k{background:radial-gradient(110% 85% at 50% 108%,#103C45 0%,#071D22 46%,#030C0E 100%)}
+.t{background:#05090A}
+.t::before{content:'';position:absolute;inset:0;background-image:linear-gradient(#0D1719 1px,transparent 1px),linear-gradient(90deg,#0D1719 1px,transparent 1px);background-size:40px 40px;background-position:-1px -1px}
+.abs{position:absolute}
+.mono{font-family:KMono,monospace}
+.disp{font-family:KDisplay,KInter,sans-serif;font-weight:600;letter-spacing:-.03em}
+.teal{color:#6FCFE0}.dim{color:#7FA3AA}.faint{color:#4F6F74}.red{color:#FF6B5E}.amb{color:#E8C25B}.grn{color:#6FD69C}
+.em{color:#6FCFE0;font-style:normal}
+
+/* chrome */
+.bar{position:absolute;left:56px;right:56px;top:36px;display:flex;justify-content:space-between;font:400 13px KMono;color:#4F6F74;letter-spacing:.04em}
+.bar b{color:#6FCFE0;font-weight:500}
+.t .bar{border-bottom:1px solid #1A2A2D;padding-bottom:12px}
+.pg{position:absolute;right:56px;bottom:32px;font:400 13px KMono;color:#4F6F74}
+.src{position:absolute;left:56px;bottom:32px;font:400 13px KMono;color:#4F6F74}
+
+/* titles on terminal slides sit in one place */
+.ttl{position:absolute;left:56px;top:96px;font:600 50px/1.06 KDisplay;letter-spacing:-.03em;color:#EAF6F8}
+.lbl{font:500 13px KMono;letter-spacing:.1em;color:#4F6F74}
+.body{font:400 20px/1.45 KInter;color:#9FBFC5}
+.panel{position:absolute;border:1px solid #233A3E;background:#071012}
+</style></head><body>
+
+<!-- 1 COVER -->
+<section class="slide k" data-notes="Kestrel: one Telegram message launches a coin on Ascend, and every Ascend launch gets a plain-language risk card. I'm Ryan Hadi, and this is our application to the Ascend Builder Incubator.">
+  <img class="abs" src="emblem-ring.svg" style="right:-300px;top:-190px;width:860px;opacity:.42">
+  <div class="abs" style="left:56px;top:48px;display:flex;gap:12px;align-items:center"><img src="mark.svg" style="width:32px"><span data-t style="font:600 15px KInter;letter-spacing:.32em">KESTREL</span></div>
+  <h1 data-t class="abs disp" style="left:56px;top:228px;width:900px;font-size:100px;line-height:.98;letter-spacing:-.035em">Launch in one message. <span class="em">Spot the rug</span> before it bites.</h1>
+  <p data-t class="abs dim" style="left:58px;top:560px;font:400 22px KInter">A Telegram launcher and risk scanner for Ascend on Elysium</p>
+  <p data-t class="abs mono faint" style="left:58px;bottom:40px;font-size:13px;letter-spacing:.08em">ASCEND BUILDER INCUBATOR · NOVEMBER 2026 · RYAN HADI</p>
+</section>
+
+<!-- 2 ONE LINE -->
+<section class="slide k" data-notes="The whole pitch in one line. Kestrel is two products and one business model: a launcher, a scanner, and a builder fee that only pays when Ascend also earns.">
+  <div class="bar"><span data-t><b>KESTREL</b> // the pitch in one line</span><span data-t>02</span></div>
+  <h2 data-t class="abs disp" style="left:56px;top:150px;width:1080px;font-size:76px;line-height:1.02">Kestrel brings Ascend <span class="em">more launches</span>, and <span class="em">safer</span> ones.</h2>
+  <div class="abs" style="left:56px;right:56px;top:470px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px">
+    <div style="border-top:1px solid #2A474C;padding-top:20px"><p data-t class="lbl teal">01 · LAUNCHER</p><p data-t class="body" style="margin-top:12px;color:#CFE7EA">A coin from one Telegram message. No code, no dev buy.</p></div>
+    <div style="border-top:1px solid #2A474C;padding-top:20px"><p data-t class="lbl teal">02 · SCANNER</p><p data-t class="body" style="margin-top:12px;color:#CFE7EA">A plain-language risk card for every Ascend coin, not only ours.</p></div>
+    <div style="border-top:1px solid #2A474C;padding-top:20px"><p data-t class="lbl teal">03 · BUILDER FEE</p><p data-t class="body" style="margin-top:12px;color:#CFE7EA">Our only revenue, capped by Ascend, paid on trades that also pay Ascend.</p></div>
+  </div>
+</section>
+
+<!-- 3 SCALE -->
+<section class="slide k" data-notes="Real numbers from Elysium mainnet, read by Kestrel's own reader. Ascend's first launch was on November 4. In under five days there have been 2,699 launches, and 1,221 of them came in the last 24 hours, so volume is rising. Creators are already here.">
+  <div class="bar"><span data-t><b>ASCEND</b> // elysium mainnet</span><span data-t>03</span></div>
+  <div data-t class="abs disp teal" style="left:40px;top:90px;font-size:300px;line-height:1;letter-spacing:-.06em">2,699</div>
+  <p data-t class="abs disp" style="left:56px;top:440px;width:1000px;font-size:46px;line-height:1.12;letter-spacing:-.02em">launches on Ascend in under five days. <span class="dim">1,221 of them in the last 24 hours.</span></p>
+  <p data-t class="src">Source: Kestrel reader · every Launched event since Nov 4, 2026 · read Nov 9, 12:51 UTC</p>
+</section>
+
+<!-- 4 THREE -->
+<section class="slide k" data-notes="Over that time only three of the 2,699 launches used a builder fee, and all three came from a single builder address charging 0.5%. That shows the builder mechanism works, and that the lane is almost empty. Kestrel is built to fill it, with distribution into Indonesian and Southeast Asian Telegram communities.">
+  <div class="bar"><span data-t><b>ASCEND</b> // elysium mainnet</span><span data-t>04</span></div>
+  <div data-t class="abs disp teal" style="left:40px;top:70px;font-size:500px;line-height:1;letter-spacing:-.06em">3</div>
+  <p data-t class="abs disp" style="left:420px;top:250px;width:740px;font-size:46px;line-height:1.12;letter-spacing:-.02em">of 2,699 launches used a builder fee. <span class="dim">All from one builder address. The lane is nearly empty.</span></p>
+  <p data-t class="src">Source: builderFee &gt; 0 on 3 Launched events · one builder (0xB153…e3d1) at 0.5% · read Nov 9, 12:51 UTC</p>
+</section>
+
+<!-- 5 FEES DATA -->
+<section class="slide t" data-notes="The risk is real too. 165 of the 2,699 coins charge the maximum 10% fee on every buy and sell. That is 6% of all launches, and it was 10% of the last 24 hours, so it is rising. 44% opted out of community takeover and 51% included a dev buy. All of it is on-chain, and none of it is visible in a wallet or a chart. Under Kestrel's rules, 270 of the 2,699 coins score high risk and 497 medium.">
+  <div class="bar"><span data-t><b>05</b> // what buyers can't see</span><span data-t>source: Launched events · all 2,699 since Nov 4</span></div>
+  <h2 data-t class="ttl" style="width:560px">165 coins charge <span class="red">10%</span> on every buy and sell.</h2>
+  <p data-t class="abs body" style="left:56px;top:330px;width:500px">That is 6% of all launches, and 10% of the last 24 hours. The fee sits in a contract event most traders never open. A wallet shows the price, not the toll.</p>
+  <div class="abs" style="left:56px;top:520px;display:flex;gap:64px">
+    <div><p data-t class="disp" style="font-size:56px">44%</p><p data-t class="mono faint" style="font-size:13px;margin-top:4px">opted out of community takeover</p></div>
+    <div><p data-t class="disp" style="font-size:56px">51%</p><p data-t class="mono faint" style="font-size:13px;margin-top:4px">included a dev buy</p></div>
+  </div>
+  <div class="panel" style="left:660px;top:120px;width:564px;height:520px;padding:32px 36px">
+    <p data-t class="lbl">LAUNCHES BY CREATOR FEE</p>
+    <div style="margin-top:30px;display:grid;grid-template-columns:62px 1fr 64px;row-gap:26px;align-items:center;font:400 18px KMono">
+      <span data-t class="dim">1%</span><span style="height:30px;background:#2C4A50;width:100%"></span><span data-t style="text-align:right">1,621</span>
+      <span data-t class="dim">2%</span><span style="height:30px;background:#2C4A50;width:32.8%"></span><span data-t style="text-align:right">531</span>
+      <span data-t class="dim">3%</span><span style="height:30px;background:#2C4A50;width:14.9%"></span><span data-t style="text-align:right">241</span>
+      <span data-t class="dim">5%</span><span style="height:30px;background:#2C4A50;width:6.5%"></span><span data-t style="text-align:right">106</span>
+      <span data-t class="red">10%</span><span style="height:30px;background:#FF6B5E;width:10.2%"></span><span data-t class="red" style="text-align:right">165</span>
+      <span data-t class="dim">other</span><span style="height:30px;background:#2C4A50;width:2.2%"></span><span data-t style="text-align:right">35</span>
+    </div>
+    <p data-t class="mono faint" style="position:absolute;left:36px;bottom:28px;font-size:13px">fee = creator fee tier · charged on buys and sells</p>
+  </div>
+</section>
+
+<!-- 6 PROBLEM -->
+<section class="slide k" data-notes="Both sides of the market have a problem. Creators give up halfway through a launch. Traders cannot read what the chain already tells them.">
+  <div class="bar"><span data-t><b>THE PROBLEM</b></span><span data-t>06</span></div>
+  <h2 data-t class="abs disp" style="left:56px;top:150px;width:1100px;font-size:84px;line-height:1">Launching is hard. <span class="dim">Reading a launch is harder.</span></h2>
+  <div class="abs" style="left:56px;right:56px;top:450px;display:grid;grid-template-columns:1fr 1fr;gap:64px">
+    <div style="border-top:1px solid #2A474C;padding-top:20px"><p data-t class="lbl teal">CREATORS GIVE UP HALFWAY</p><p data-t class="body" style="margin-top:12px;color:#CFE7EA">Wallets, pair assets and fee settings stand between a community and its coin.</p></div>
+    <div style="border-top:1px solid #2A474C;padding-top:20px"><p data-t class="lbl teal">TRADERS BUY BLIND</p><p data-t class="body" style="margin-top:12px;color:#CFE7EA">Fees, dev buys and takeover opt-outs are all on-chain, but written in code.</p></div>
+  </div>
+</section>
+
+<!-- 7 RAW VS READABLE -->
+<section class="slide t" data-notes="This is the core idea. On the left is what a launch actually looks like on-chain. On the right is the same launch after Kestrel reads it: two plain sentences a trader understands in seconds.">
+  <div class="bar"><span data-t><b>07</b> // the core idea</span><span data-t>raw event → risk card</span></div>
+  <h2 data-t class="ttl">We turn launch events into <span class="teal">sentences</span>.</h2>
+  <div class="panel" style="left:56px;top:240px;width:540px;height:380px;padding:30px 32px">
+    <p data-t class="lbl">WHAT THE CHAIN SAYS</p>
+    <p data-t class="mono" style="margin-top:28px;font-size:18px;line-height:1.75;color:#9FBFC5;white-space:pre">Launched(
+  poolId, token, creator, quote,
+  supplySeeded,
+  devBuyTokens = <span class="teal">2.06e25</span>,
+  fee          = <span class="teal">100000</span>,
+  builderFee   = 0
+)</p>
+  </div>
+  <div data-t class="abs mono teal" style="left:612px;top:405px;font-size:30px">→</div>
+  <div class="panel" style="left:664px;top:240px;width:560px;height:380px;padding:30px 32px;border-color:#3E5F64;background:#0A1619">
+    <div style="display:flex;justify-content:space-between;align-items:center"><p data-t class="lbl">WHAT KESTREL SAYS</p><span data-t class="mono red" style="font-size:13px;border:1px solid #FF6B5E;padding:4px 10px;letter-spacing:.08em">HIGH RISK</span></div>
+    <p data-t class="disp" style="margin-top:34px;font-size:32px;line-height:1.2">Expensive to trade: <span class="red">10% fee</span> on every buy and sell.</p>
+    <p data-t class="disp" style="margin-top:26px;font-size:32px;line-height:1.2">Creator holds <span class="amb">2.06%</span> of supply from the dev buy.</p>
+  </div>
+</section>
+
+<!-- 8 LAUNCHER -->
+<section class="slide t" data-notes="The launcher. A creator sets their wallet once, sends one message, checks a confirmation card and taps once. Safe defaults: no dev buy, creator fees straight to the creator's wallet, and every launch is simulated against Ascend's contracts before it is sent. Example coin is illustrative.">
+  <div class="bar"><span data-t><b>08</b> // product · launcher</span><span data-t>telegram</span></div>
+  <h2 data-t class="ttl" style="width:560px">Launch: <span class="teal">one message</span>, safe defaults.</h2>
+  <div class="abs" style="left:56px;top:300px;width:540px;font:400 18px/2.1 KMono;color:#9FBFC5">
+    <p data-t><span class="teal">›</span> set your wallet once</p>
+    <p data-t><span class="teal">›</span> no code, no gas from the creator</p>
+    <p data-t><span class="teal">›</span> no dev buy by default</p>
+    <p data-t><span class="teal">›</span> creator fees go to the creator's wallet</p>
+    <p data-t><span class="teal">›</span> simulated before anything is sent</p>
+  </div>
+  <div class="panel" style="left:676px;top:96px;width:548px;height:560px;border-radius:22px;background:#0B1416;border-color:#22383C;padding:0;overflow:hidden">
+    <div style="height:64px;border-bottom:1px solid #1A2A2D;display:flex;align-items:center;gap:12px;padding:0 22px"><img src="mark.svg" style="width:34px"><div><p data-t style="font:600 16px KInter">Kestrel</p><p data-t class="faint" style="font:400 13px KInter">bot</p></div></div>
+    <div style="padding:24px 22px;display:flex;flex-direction:column;gap:16px">
+      <div style="align-self:flex-end;background:#1B5562;border-radius:14px 14px 4px 14px;padding:12px 16px"><p data-t class="mono" style="font-size:15px">/launch KOPI "Kopi Nusantara" fee=2</p></div>
+      <div style="align-self:flex-start;background:#13201F;border:1px solid #22383C;border-radius:14px 14px 14px 4px;padding:16px 18px;width:400px">
+        <p data-t style="font:600 16px KInter">Confirm launch</p>
+        <p data-t class="dim" style="font:400 15px/1.6 KInter;margin-top:6px">Kopi Nusantara ($KOPI)<br>Pair USDC · Fee 2% · Dev buy none</p>
+        <div style="display:flex;gap:8px;margin-top:14px"><span data-t style="flex:1;text-align:center;background:#6FCFE0;color:#05181C;font:600 15px KInter;padding:9px;border-radius:8px">Launch</span><span data-t style="flex:1;text-align:center;border:1px solid #2C4A50;font:500 15px KInter;padding:9px;border-radius:8px;color:#9FBFC5">Cancel</span></div>
+      </div>
+      <div style="align-self:flex-start;background:#13201F;border:1px solid #22383C;border-radius:14px 14px 14px 4px;padding:14px 18px"><p data-t style="font:400 15px KInter"><span class="grn">●</span> $KOPI is live on Ascend · <span class="mono dim">0x7a3f…c91e</span></p></div>
+    </div>
+    <p data-t class="mono faint" style="position:absolute;left:22px;bottom:18px;font-size:12px">example coin · illustrative</p>
+  </div>
+</section>
+
+<!-- 9 SCANNER -->
+<section class="slide t" data-notes="The scanner reads every Ascend launch, not only the ones Kestrel makes, and gives each a risk level with reasons. Rules are transparent: every flag maps to a field on-chain. The coins shown are the example coins from the live site.">
+  <div class="bar"><span data-t><b>09</b> // product · scanner</span><span data-t>web + telegram</span></div>
+  <h2 data-t class="ttl" style="width:580px">Scan: every Ascend coin gets a card <span class="teal">before anyone buys</span>.</h2>
+  <table class="abs mono" style="left:56px;top:330px;width:560px;border-collapse:collapse;font-size:16px">
+    <tr class="faint" style="font-size:12px;letter-spacing:.08em"><td data-t style="padding:0 0 12px">TICKER</td><td data-t>FEE</td><td data-t>DEV BUY</td><td data-t>TAKEOVER</td><td data-t>RISK</td></tr>
+    <tr style="border-top:1px solid #1A2A2D"><td data-t style="padding:15px 0">$HYPE</td><td data-t>8%</td><td data-t>18%</td><td data-t>off</td><td data-t class="red">HIGH</td></tr>
+    <tr style="border-top:1px solid #1A2A2D"><td data-t style="padding:15px 0">$GPIX</td><td data-t>3%</td><td data-t>3.5%</td><td data-t>on</td><td data-t class="amb">MEDIUM</td></tr>
+    <tr style="border-top:1px solid #1A2A2D;border-bottom:1px solid #1A2A2D"><td data-t style="padding:15px 0">$KOPI</td><td data-t>2.5%</td><td data-t>0%</td><td data-t>on</td><td data-t class="grn">LOW</td></tr>
+  </table>
+  <p data-t class="abs mono faint" style="left:56px;top:560px;width:560px;font-size:13px;line-height:1.6">example coins from the live site<br>rule-based: every flag maps to an on-chain field</p>
+  <div class="panel" style="left:676px;top:96px;width:548px;height:560px;padding:30px 32px;background:#0A1619;border-color:#3E5F64">
+    <div style="display:flex;justify-content:space-between;align-items:center"><span data-t class="mono faint" style="font-size:13px">0x6666…6666 · 12m · HYPE pair</span><span data-t class="mono red" style="font-size:13px;border:1px solid #FF6B5E;padding:4px 10px;letter-spacing:.08em">HIGH RISK</span></div>
+    <p data-t class="disp" style="margin-top:26px;font-size:40px">Hyper Moon <span class="faint" style="font-weight:400">$HYPE</span></p>
+    <div style="margin-top:28px;font:400 17px/1.45 KInter;color:#CFE7EA;display:flex;flex-direction:column;gap:16px">
+      <p data-t><span class="red">▲ </span>Ticker copies a well-known asset. Likely a copycat.</p>
+      <p data-t><span class="red">▲ </span>Creator holds 18% of supply from the dev buy.</p>
+      <p data-t><span class="amb">▲ </span>Expensive to trade: 8% fee on every buy and sell.</p>
+      <p data-t><span class="amb">▲ </span>No community takeover if the creator leaves.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 LOOP -->
+<section class="slide k" data-notes="The flywheel. Easier launches bring more coins. Risk cards give buyers confidence. Trades pay creators, Ascend and Kestrel. Good creators bring their communities back for the next launch.">
+  <div class="bar"><span data-t><b>HOW IT COMPOUNDS</b></span><span data-t>10</span></div>
+  <h2 data-t class="abs disp" style="left:56px;top:170px;font-size:64px;line-height:1.05;width:1000px">Every launch feeds <span class="em">the next one</span>.</h2>
+  <div class="abs" style="left:56px;right:56px;top:390px;display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+    <div style="padding-right:28px"><p data-t class="mono teal" style="font-size:14px">01</p><p data-t class="disp" style="font-size:52px;margin-top:8px">Launch <span class="faint" style="font-weight:400">→</span></p><p data-t class="body" style="font-size:18px;margin-top:14px">One message brings a creator and their community.</p></div>
+    <div style="padding-right:28px"><p data-t class="mono teal" style="font-size:14px">02</p><p data-t class="disp" style="font-size:52px;margin-top:8px">Scan <span class="faint" style="font-weight:400">→</span></p><p data-t class="body" style="font-size:18px;margin-top:14px">Every coin gets a card, so buyers trust the platform.</p></div>
+    <div style="padding-right:28px"><p data-t class="mono teal" style="font-size:14px">03</p><p data-t class="disp" style="font-size:52px;margin-top:8px">Trade <span class="faint" style="font-weight:400">→</span></p><p data-t class="body" style="font-size:18px;margin-top:14px">Buyers trade with the facts in hand.</p></div>
+    <div><p data-t class="mono teal" style="font-size:14px">04</p><p data-t class="disp" style="font-size:52px;margin-top:8px">Earn <span class="faint" style="font-weight:400">↺</span></p><p data-t class="body" style="font-size:18px;margin-top:14px">Fees reach the creator, who comes back to launch again.</p></div>
+  </div>
+</section>
+
+<!-- 11 BUSINESS -->
+<section class="slide k" data-notes="Fee shares follow Ascend's published fee table for a coin between 40 thousand and 1 million dollars market cap. Kestrel never touches user funds. Its only revenue is the builder fee, which Ascend caps on-chain. More Kestrel volume means more Ascend revenue. Per-million figures are illustrative.">
+  <div class="bar"><span data-t><b>BUSINESS MODEL</b></span><span data-t>11</span></div>
+  <h2 data-t class="abs disp" style="left:56px;top:110px;font-size:64px;line-height:1.05;width:1100px">Kestrel earns <span class="em">only when</span> Ascend earns.</h2>
+  <p data-t class="abs lbl" style="left:56px;top:262px">ONE $1,000 TRADE ON A KESTREL COIN · 2% CREATOR FEE + 0.5% BUILDER FEE</p>
+  <div class="abs" style="left:56px;right:56px;top:300px;height:56px;display:flex;gap:4px">
+    <div style="flex:15;background:#6FCFE0"></div><div style="flex:5;background:#EAF6F8"></div><div style="flex:4.5;background:#3E6F78"></div><div style="flex:.5;background:#6FD69C"></div>
+  </div>
+  <div class="abs" style="left:56px;right:56px;top:384px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px">
+    <div><p data-t class="disp teal" style="font-size:60px">$15</p><p data-t class="mono dim" style="font-size:14px;margin-top:6px">to the creator</p></div>
+    <div><p data-t class="disp" style="font-size:60px">$5</p><p data-t class="mono dim" style="font-size:14px;margin-top:6px">to Kestrel (builder fee)</p></div>
+    <div><p data-t class="disp" style="font-size:60px;color:#7FB3BC">$4.50</p><p data-t class="mono dim" style="font-size:14px;margin-top:6px">to Ascend protocol</p></div>
+    <div><p data-t class="disp grn" style="font-size:60px">$0.50</p><p data-t class="mono dim" style="font-size:14px;margin-top:6px">buys back the coin</p></div>
+  </div>
+  <p data-t class="abs body" style="left:56px;top:560px;width:1100px;font-size:19px">At $1M traded on Kestrel coins: <span style="color:#EAF6F8">$15k to creators, $4.5k to Ascend, $5k to Kestrel.</span> The builder fee is capped on-chain by Ascend's multisig, at most 1%.</p>
+  <p data-t class="src">Shares from Ascend's fee table, $40k–$1M market cap band · per-$1M figures illustrative</p>
+</section>
+
+<!-- 12 BUILT -->
+<section class="slide t" data-notes="No users yet, and I say so. What exists is real: the scanner reads mainnet today, and the launch transaction was simulated against Ascend's live contracts with outputs matching predict. Live launches wait on builder approval and a funded gas wallet.">
+  <div class="bar"><span data-t><b>12</b> // where we are</span><span data-t>no users yet · everything below is checkable</span></div>
+  <h2 data-t class="ttl">Built, and checked against <span class="teal">mainnet</span>.</h2>
+  <div class="abs mono" style="left:56px;top:228px;width:600px;font-size:16px;line-height:1.5;display:grid;grid-template-columns:24px 140px 1fr;row-gap:20px">
+    <span data-t class="grn">✓</span><span data-t>scanner</span><span data-t class="dim">live on Elysium mainnet, public RPC</span>
+    <span data-t class="grn">✓</span><span data-t>launch flow</span><span data-t class="dim">launchChecked simulated on Ascend's mainnet contracts, USDC and HYPE pairs</span>
+    <span data-t class="grn">✓</span><span data-t>addresses</span><span data-t class="dim">simulated outputs match predict()</span>
+    <span data-t class="grn">✓</span><span data-t>telegram bot</span><span data-t class="dim">/launch /scan /new, channel alerts, English and Bahasa Indonesia</span>
+    <span data-t class="grn">✓</span><span data-t>tests</span><span data-t class="dim">15 / 15 passing: calldata, risk rules, rate limits, escaping</span>
+    <span data-t class="amb">○</span><span data-t class="amb">live launches</span><span data-t class="dim">wait on builder approval and a funded gas wallet</span>
+  </div>
+  <div class="panel" style="left:700px;top:228px;width:524px;height:400px;padding:10px">
+    <img src="site-hero.jpg" style="width:502px;height:314px;object-fit:cover;display:block">
+    <p data-t class="mono dim" style="font-size:13px;margin:22px 8px 0">hadijayyy.github.io/kestrel</p>
+    <p data-t class="mono faint" style="font-size:13px;margin:6px 8px 0">live scanner on Elysium mainnet</p>
+  </div>
+</section>
+
+<!-- 13 SAFE -->
+<section class="slide t" data-notes="Safety is in the code, not in a promise. The main risks are spam launches hurting Ascend's reputation, a hot-wallet compromise, and dependence on one RPC. The controls on the left address them. There is no audit yet; a review of the launch flow is the first line in the budget.">
+  <div class="bar"><span data-t><b>13</b> // risk controls</span><span data-t>bot/config.js</span></div>
+  <h2 data-t class="ttl">Safe by default, <span class="teal">in code</span>.</h2>
+  <div class="panel" style="left:56px;top:200px;width:700px;height:440px;padding:30px 34px">
+    <p data-t class="lbl">KESTREL DEFAULTS</p>
+    <div class="mono" style="margin-top:22px;font-size:17px;line-height:2.2;display:grid;grid-template-columns:150px 170px 1fr">
+      <span data-t>custody</span><span data-t class="teal">none</span><span data-t class="faint"># no keys asked</span>
+      <span data-t>simulate</span><span data-t class="teal">always</span><span data-t class="faint"># before every send</span>
+      <span data-t>dry_run</span><span data-t class="teal">on</span><span data-t class="faint"># until switched off</span>
+      <span data-t>rate_limit</span><span data-t class="teal">1/user/day</span><span data-t class="faint"># + global hourly cap</span>
+      <span data-t>copycats</span><span data-t class="teal">blocked</span><span data-t class="faint"># tickers, hidden chars</span>
+      <span data-t>builder_fee</span><span data-t class="teal">≤ 1%</span><span data-t class="faint"># clamped to Ascend's cap</span>
+      <span data-t>scoring</span><span data-t class="teal">rules</span><span data-t class="faint"># each flag = on-chain field</span>
+    </div>
+  </div>
+  <div class="abs" style="left:800px;top:200px;width:424px">
+    <p data-t class="lbl">KNOWN RISKS</p>
+    <div style="margin-top:22px;display:flex;flex-direction:column;gap:26px">
+      <div><p data-t style="font:600 20px KInter">Spam launches</p><p data-t class="body" style="font-size:17px;margin-top:4px">Rate limits and the copycat filter.</p></div>
+      <div><p data-t style="font:600 20px KInter">Hot wallet</p><p data-t class="body" style="font-size:17px;margin-top:4px">It pays gas only and holds a minimal balance.</p></div>
+      <div><p data-t style="font:600 20px KInter">No audit yet</p><p data-t class="body" style="font-size:17px;margin-top:4px">A launch-flow review is the first line of the budget.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 PLAN -->
+<section class="slide k" data-notes="Each milestone is verifiable on-chain through Kestrel's builder address, so Ascend can check progress without trusting my reporting. Everything after day 30 depends on builder approval.">
+  <div class="bar"><span data-t><b>FIRST 90 DAYS</b></span><span data-t>14</span></div>
+  <h2 data-t class="abs disp" style="left:56px;top:110px;font-size:64px;line-height:1.05;width:1100px">Milestones you can check <span class="em">on-chain</span>.</h2>
+  <div class="abs" style="left:56px;right:56px;top:270px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px">
+    <div style="border-top:1px solid #2A474C;padding-top:18px"><p data-t class="mono dim" style="font-size:14px">DAY</p><p data-t class="disp teal" style="font-size:120px;line-height:1">30</p><p data-t style="font:600 22px KInter;margin-top:18px">Live on mainnet</p><p data-t class="body" style="font-size:17px;margin-top:8px">Bot live with /scan and alerts. First 25 coins launched through Kestrel.</p></div>
+    <div style="border-top:1px solid #2A474C;padding-top:18px"><p data-t class="mono dim" style="font-size:14px">DAY</p><p data-t class="disp teal" style="font-size:120px;line-height:1">60</p><p data-t style="font:600 22px KInter;margin-top:18px">Builder fee on</p><p data-t class="body" style="font-size:17px;margin-top:8px">Approved builder fee live. 150 launches. 1,000-member alert channel.</p></div>
+    <div style="border-top:1px solid #2A474C;padding-top:18px"><p data-t class="mono dim" style="font-size:14px">DAY</p><p data-t class="disp teal" style="font-size:120px;line-height:1">90</p><p data-t style="font:600 22px KInter;margin-top:18px">More launch types</p><p data-t class="body" style="font-size:17px;margin-top:8px">Holder Rewards and Buyback options. 500 launches. Public fee dashboard.</p></div>
+  </div>
+  <p data-t class="src">Measured by Kestrel's builder address on-chain · depends on builder approval and a reliable Elysium RPC</p>
+</section>
+
+<!-- 15 TEAM -->
+<section class="slide k" data-notes="Solo founder today. I build automation for businesses: data pipelines, LLM agents and chat bots. Kestrel applies the same skills to on-chain data. The incubator support goes to the two areas where a solo founder needs leverage most: security review and community growth.">
+  <div class="bar"><span data-t><b>TEAM</b></span><span data-t>15</span></div>
+  <p data-t class="abs lbl teal" style="left:56px;top:150px">FOUNDER · INDONESIA (GMT+7)</p>
+  <h2 data-t class="abs disp" style="left:56px;top:180px;font-size:104px;line-height:1">Ryan Hadi</h2>
+  <p data-t class="abs body" style="left:58px;top:320px;width:540px">AI automation specialist. I build data pipelines, LLM agents and bots for businesses. Kestrel applies the same skills to on-chain data: event ingestion, automated analysis and chat interfaces.</p>
+  <p data-t class="abs mono teal" style="left:58px;top:490px;font-size:15px">hadijayyy.github.io</p>
+  <div class="abs" style="left:720px;top:150px;width:504px;display:flex;flex-direction:column;gap:0">
+    <div style="border-top:1px solid #2A474C;padding:20px 0 26px"><p data-t style="font:600 22px KInter">Ships fast</p><p data-t class="body" style="font-size:17px;margin-top:6px">Scanner, bot and site were built and tested on live Ascend data within days of its first launches.</p></div>
+    <div style="border-top:1px solid #2A474C;padding:20px 0 26px"><p data-t style="font:600 22px KInter">Close to the users</p><p data-t class="body" style="font-size:17px;margin-top:6px">Native to the Indonesian and Southeast Asian Telegram communities Kestrel targets.</p></div>
+    <div style="border-top:1px solid #2A474C;padding:20px 0 26px"><p data-t style="font:600 22px KInter">Open source</p><p data-t class="body" style="font-size:17px;margin-top:6px">All code is public, so reviewers can check every claim.</p></div>
+  </div>
+</section>
+
+<!-- 16 ASK -->
+<section class="slide k" data-notes="The money matters less than builder approval. Without a builder fee cap, Kestrel cannot earn, and every milestone after day 30 depends on it. The fifteen thousand dollars is a proposed split; I'm open to adjusting it with the Ascend team.">
+  <div class="bar"><span data-t><b>THE ASK</b></span><span data-t>16</span></div>
+  <h2 data-t class="abs disp teal" style="left:40px;top:96px;font-size:200px;line-height:1;letter-spacing:-.05em">$15k</h2>
+  <p data-t class="abs disp" style="left:56px;top:310px;font-size:44px">+ builder approval</p>
+  <div class="abs" style="left:56px;top:410px;width:560px;display:flex;flex-direction:column;gap:18px">
+    <div><p data-t style="font:600 19px KInter">Builder approval</p><p data-t class="body" style="font-size:16px;margin-top:2px">A builderFeeCap for Kestrel's address, so launches carry the builder fee.</p></div>
+    <div><p data-t style="font:600 19px KInter">Indexer access</p><p data-t class="body" style="font-size:16px;margin-top:2px">Partner access to Ascend's indexer for scanner and alert volume.</p></div>
+    <div><p data-t style="font:600 19px KInter">Distribution</p><p data-t class="body" style="font-size:16px;margin-top:2px">A mention in Ascend's ecosystem pages and announcements.</p></div>
+  </div>
+  <div class="panel" style="left:700px;top:120px;width:524px;height:520px;padding:32px 34px;background:#06161A;border-color:#1E3B40">
+    <p data-t class="lbl">PROPOSED USE OF $15,000</p>
+    <div style="margin-top:30px;display:flex;flex-direction:column;gap:34px">
+      <div><div style="display:flex;justify-content:space-between"><span data-t style="font:400 18px KInter">Security review of the launch flow</span><span data-t class="mono" style="font-size:18px">$4,000</span></div><div style="height:8px;background:#6FCFE0;width:100%;margin-top:12px"></div></div>
+      <div><div style="display:flex;justify-content:space-between"><span data-t style="font:400 18px KInter">SEA community growth</span><span data-t class="mono" style="font-size:18px">$4,000</span></div><div style="height:8px;background:#6FCFE0;width:100%;margin-top:12px"></div></div>
+      <div><div style="display:flex;justify-content:space-between"><span data-t style="font:400 18px KInter">Runway, 3 months (partial)</span><span data-t class="mono" style="font-size:18px">$4,000</span></div><div style="height:8px;background:#6FCFE0;width:100%;margin-top:12px"></div></div>
+      <div><div style="display:flex;justify-content:space-between"><span data-t style="font:400 18px KInter">Infrastructure, RPC and launch gas</span><span data-t class="mono" style="font-size:18px">$3,000</span></div><div style="height:8px;background:#6FCFE0;width:75%;margin-top:12px"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 CLOSE -->
+<section class="slide k" data-notes="Thank you. The scanner is live on mainnet at the website, and all the code is public.">
+  <img class="abs" src="emblem-ring.svg" style="right:-300px;top:-190px;width:860px;opacity:.42">
+  <div class="abs" style="left:56px;top:48px;display:flex;gap:12px;align-items:center"><img src="mark.svg" style="width:32px"><span data-t style="font:600 15px KInter;letter-spacing:.32em">KESTREL</span></div>
+  <h2 data-t class="abs disp" style="left:56px;top:150px;width:900px;font-size:100px;line-height:.98;letter-spacing:-.035em">Launch in one message. <span class="em">Spot the rug</span> before it bites.</h2>
+  <div class="abs mono" style="left:58px;top:520px;font-size:16px;line-height:2;display:grid;grid-template-columns:110px 1fr">
+    <span data-t class="faint">site</span><span data-t class="teal">hadijayyy.github.io/kestrel</span>
+    <span data-t class="faint">code</span><span data-t class="teal">github.com/hadijayyy/hadijayyy.github.io</span>
+    <span data-t class="faint">founder</span><span data-t>Ryan Hadi</span>
+  </div>
+  <p data-t class="abs mono faint" style="left:58px;bottom:32px;width:1160px;font-size:12px">Kestrel is an independent app built on Ascend's public contracts and is not affiliated with Ascend or Kinetiq. Data from Elysium mainnet, Nov 9, 2026. Per-$1M figures are illustrative.</p>
+</section>
+</body></html>
