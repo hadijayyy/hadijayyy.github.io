@@ -54,7 +54,18 @@ export function createReader({ viem, rpcUrl, chunk = 20_000n }) {
     }));
   }
 
+  // Nodes cap how many topics one eth_getLogs call may carry, so a long backlog
+  // (for example the bot coming back after downtime) is enriched in small batches.
+  const ENRICH_BATCH = 30;
   async function enrich(launchLogs) {
+    const out = [];
+    for (let i = 0; i < launchLogs.length; i += ENRICH_BATCH) {
+      out.push(...await enrichBatch(launchLogs.slice(i, i + ENRICH_BATCH)));
+    }
+    return out;
+  }
+
+  async function enrichBatch(launchLogs) {
     if (!launchLogs.length) return [];
     const poolIds = launchLogs.map((l) => l.args.poolId);
     const minBlock = launchLogs.reduce((m, l) => (l.blockNumber < m ? l.blockNumber : m), launchLogs[0].blockNumber);
