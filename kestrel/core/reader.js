@@ -9,6 +9,7 @@ export function elysiumChain(viem, rpcUrl) {
     name: 'Elysium',
     nativeCurrency: { name: 'HYPE', symbol: 'HYPE', decimals: 18 },
     rpcUrls: { default: { http: [rpcUrl] } },
+    contracts: { multicall3: { address: ADDR.multicall3 } },
   });
 }
 

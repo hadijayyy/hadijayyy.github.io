@@ -10,7 +10,11 @@ export const ADDR = {
   launchpad: '0xe0dEF4221b9840a610D4e7d55812a79A6431a8eC',
   escrowFactory: '0x63f6a8A8d0257c0363251a50cdE8A8b1046e4d19',
   seatFactory: '0xBDB8d64452191041C4dAA3AD0f64bE4380FEA0b1',
+  multicall3: '0xcA11bde05977b3631167028862bE2a173976CA11',
 };
+
+// Public Elysium mainnet RPC, published by Kinetiq at mainnet launch.
+export const PUBLIC_RPC = 'https://rpc.elysium.kinetiq.xyz';
 
 export const QUOTES = {
   USDC: { address: '0xb47c4C8F73F009CC0C0d3f92B388d13E293F0B65', decimals: 6, label: 'USDC' },

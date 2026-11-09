@@ -52,5 +52,5 @@ The bot refuses to start unless the RPC reports chain 99901 (Elysium mainnet). I
 ## Status
 
 - Tested: command parsing, risk rules, `launchChecked` calldata encoding, config, rate limits, HTML escaping (`npm test`). Also tested: the web page in a headless browser, and the RPC chain check against Elysium testnet.
-- Not yet tested against Elysium mainnet: its public RPC is published at mainnet launch. The first real step is `/new` and `/scan` with a mainnet RPC, then a `DRY_RUN=1` launch simulation.
+- Tested on Elysium mainnet (Nov 9, 2026) through the public RPC `https://rpc.elysium.kinetiq.xyz`: the reader loads and scores live launches, and the website auto-loads them. Not yet run on mainnet: the Telegram bot itself and a `DRY_RUN=1` launch simulation.
 - Holder Rewards and Buyback launches (`SeatFactoryV5`) are read and shown by the scanner but not yet offered by `/launch`.

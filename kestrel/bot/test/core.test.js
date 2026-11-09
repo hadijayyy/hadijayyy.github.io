@@ -69,6 +69,13 @@ test('analyze: dev buy wallet also receives fees is flagged', () => {
   assert.ok(a.flags.some((f) => /same wallet/.test(f.en)));
 });
 
+test('analyze: dust dev buy does not trigger the same-wallet warning', () => {
+  const dust = analyzeLaunch({ ...base, devBuyTokens: (STANDARD_SUPPLY / 50_000n).toString() }, 10_000); // 0.002%
+  assert.ok(!dust.flags.some((f) => /same wallet/.test(f.en)));
+  assert.equal(dust.level, 'low');
+  assert.ok(dust.flags.some((f) => /under 0.01%/.test(f.en)));
+});
+
 test('sample launches all analyze', () => {
   const levels = SAMPLE_LAUNCHES.map((l) => analyzeLaunch(l).level);
   assert.deepEqual(levels, ['low', 'medium', 'high']);

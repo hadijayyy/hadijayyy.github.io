@@ -1,5 +1,5 @@
 import { analyzeLaunch } from './core/analyze.js';
-import { pipsToPercent, quoteByAddress, shortAddr } from './core/ascend.js';
+import { PUBLIC_RPC, pipsToPercent, quoteByAddress, shortAddr } from './core/ascend.js';
 import { isAddress } from './core/parse.js';
 import { SAMPLE_LAUNCHES } from './core/sample.js';
 import { I18N } from './i18n.js';
@@ -84,7 +84,7 @@ function render() {
   }
 }
 
-async function loadLive(rpcUrl) {
+async function loadLive(rpcUrl, { quiet = false } = {}) {
   const status = $('status');
   state.error = null;
   status.dataset.busy = '1';
@@ -97,9 +97,10 @@ async function loadLive(rpcUrl) {
     state.reader = reader;
     state.launches = await reader.latestLaunches(12);
     state.demo = false;
-    localStorage.setItem('kestrel.rpc', rpcUrl);
+    if (rpcUrl !== PUBLIC_RPC) localStorage.setItem('kestrel.rpc', rpcUrl);
   } catch (e) {
-    state.error = `Error: ${e.shortMessage || e.message}`;
+    // On the automatic first load, fall back to the example coins without an error.
+    if (!quiet) state.error = `Error: ${e.shortMessage || e.message}`;
   } finally {
     delete status.dataset.busy;
     render();
@@ -147,6 +148,8 @@ const io = new IntersectionObserver((entries) => {
 io.observe($('hero-cta'));
 io.observe($('start'));
 
-const saved = localStorage.getItem('kestrel.rpc');
+let saved = null;
+try { saved = localStorage.getItem('kestrel.rpc'); } catch { /* storage may be blocked */ }
 render();
-if (saved) { $('rpc').value = saved; loadLive(saved); }
+if (saved) $('rpc').value = saved;
+loadLive(saved || PUBLIC_RPC, { quiet: !saved });

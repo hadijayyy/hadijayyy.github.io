@@ -21,6 +21,7 @@ function lower(a) {
 }
 
 function fmtPct(n) {
+  if (n > 0 && n < 0.01) return 'under 0.01%';
   return `${Number(n.toFixed(2))}%`;
 }
 
@@ -104,7 +105,8 @@ export function analyzeLaunch(l, nowSec = Math.floor(Date.now() / 1000)) {
     }
     add(0, 'good', `Creator fees are shared: ${parts.join(', ')}.`,
       `Fee pembuat dibagi: ${partsId.join(', ')}.`);
-  } else if (dev > 0 && l.recipient && lower(l.recipient) === lower(l.dev)) {
+  } else if (dev >= 0.5 && l.recipient && lower(l.recipient) === lower(l.dev)) {
+    // dust dev buys (< 0.5%) are common and harmless, so they don't trigger this
     add(10, 'warn', 'All creator fees go to the same wallet that did the dev buy.',
       'Semua fee pembuat masuk ke wallet yang sama dengan pelaku dev buy.');
   } else {

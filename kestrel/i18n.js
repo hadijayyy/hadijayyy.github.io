@@ -223,4 +223,11 @@ Object.assign(I18N, {
   'price.r6': { en: 'Kestrel fee', id: 'Fee Kestrel' },
   'price.v6': { en: '≤1%, capped on-chain', id: '≤1%, dibatasi on-chain' },
   'cta.short': { en: 'Get started', id: 'Mulai' },
+  'scan.sub': {
+    en: 'The latest Ascend launches on Elysium mainnet, scored live. Paste any coin address to check it.',
+    id: 'Launch terbaru Ascend di mainnet Elysium, dinilai secara live. Tempel alamat koin apa pun untuk mengeceknya.',
+  },
+  'scan.live': { en: 'Use RPC', id: 'Pakai RPC' },
+  demo: { en: 'Showing example coins (not real): live data could not be loaded.', id: 'Menampilkan koin contoh (bukan asli): data live gagal dimuat.' },
+  needRpc: { en: 'Live data is not loaded, so only example coins can be scanned.', id: 'Data live belum dimuat, jadi hanya koin contoh yang bisa di-scan.' },
 });
